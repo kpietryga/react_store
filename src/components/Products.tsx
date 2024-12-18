@@ -1,6 +1,4 @@
-import React from "react";
 import PromotedProducts from "./PromotedProducts";
-
 
 const Products: React.FC = () => {
 

@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}", // Obejmuje wszystkie istotne pliki
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'], // Dodaj niestandardową czcionkę
+      },
+    },
   },
   plugins: [],
 };
+
