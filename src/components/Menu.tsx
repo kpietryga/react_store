@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
+import {ShoppingCartIcon} from "@heroicons/react/24/outline";
 
 const Navigation = () => {
     return (
-        <header className="bg-gray-800 text-white">
+        <header className="bg-white text-customGrayText">
             <div className="max-w-screen-xl m-auto">
                 <nav>
-                    <ul className="flex items-center justify-around text-xl p-6">
+                    <ul className="flex items-center text-xl p-6">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/products">Products</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="#">Cart</Link></li>
+                        <li><Link to="#"><ShoppingCartIcon className="h-6 w-6 text-gray-200 "/></Link></li>
                     </ul>
                 </nav>
 

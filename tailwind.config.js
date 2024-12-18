@@ -9,6 +9,10 @@ export default {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'], // Dodaj niestandardową czcionkę
       },
+      colors: {
+        customBlack: '#010101',
+        customGrayText: '#666666'// Twój kolor
+      },
     },
   },
   plugins: [],
