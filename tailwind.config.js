@@ -2,16 +2,21 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Obejmuje wszystkie istotne pliki
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'], // Dodaj niestandardową czcionkę
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
+        customRed: '#E55472',
         customBlack: '#010101',
-        customGrayText: '#666666'// Twój kolor
+        customGrayText: '#666666',
+        customRose: '#e7ada8',
+      },
+      backgroundImage: {
+        'custom-pattern': "url('src/assets/hero.jpg')",
       },
     },
   },

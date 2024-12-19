@@ -1,27 +1,27 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Menu from "./components/Menu";
-import Footer from "./components/Footer";
-import Products from "./components/Products";
-import NotFound from "./components/NotFound";
-import TopBar from "./components/TopBar";
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Products from "./components/pages/Products";
+import NotFound from "./components/pages/NotFound";
+import Offer from "./components/pages/Offer.tsx";
+// import TopTitle from "./components/common/TopTitle.tsx";
+// import React from "react";
 
 const App = () => {
     return (
         <Router>
-            <TopBar />
-            <Menu />
-            <main className="max-w-screen-xl mx-auto text-center p-3">
+            <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/offer" element={<Offer />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-            </main>
             <Footer />
         </Router>
     );
