@@ -7,12 +7,14 @@ import Footer from "./components/layout/Footer";
 import Products from "./components/pages/Products";
 import NotFound from "./components/pages/NotFound";
 import Offer from "./components/pages/Offer.tsx";
+import Cart from "./components/common/Cart.tsx";
 // import TopTitle from "./components/common/TopTitle.tsx";
 // import React from "react";
 
 const App = () => {
     return (
         <Router>
+            <Cart/>
             <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
