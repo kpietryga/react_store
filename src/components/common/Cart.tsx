@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 
 const Cart: React.FC = () => {
-    // Początkowo koszyk jest widoczny
     const [isCartHidden, setIsCartHidden] = useState(false);
 
     const hideCart = () => {
-        setIsCartHidden(true); // Ustawienie stanu na ukryty koszyk
+        setIsCartHidden(true);
         console.log("Koszyk ukryty");
     };
 
     return (
         <div
-            className={`absolute top-0 bottom-0 right-0 bg-white shadow-xl p-9 transition-all duration-300 ${
+            className={`fixed top-0 bottom-0 right-0 bg-white shadow-xl p-9 transition-all duration-300 ${
                 isCartHidden ? "left-full" : "left-2/3"
             }`}
         >

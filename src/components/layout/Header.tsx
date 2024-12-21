@@ -36,7 +36,13 @@ const Header = () => {
                     <input className="" id="search-input" type="text" placeholder="Wyszukaj..."/>
                     <MagnifyingGlassIcon className="h-6 w-6 text-gray-200 "/>
                 </div>
-                <Link to="#"><ShoppingCartIcon className="h-6 w-6 text-customRed"/></Link>
+
+                <div className="flex gap-2">
+                    <p>0,00 zł</p>
+                    <Link to="#"><ShoppingCartIcon className="h-6 w-6 text-customRed"/></Link>
+
+                </div>
+
             </div>
 
             <nav className="flex justify-center border-t-gray-200 border-t">
