@@ -1,5 +1,5 @@
 import React from "react";
-import {ADDRES, EMAIL, TEL} from "../common/ContactData.tsx";
+import {ADDRESS, EMAIL, TEL} from "../common/ContactData.tsx";
 import {EnvelopeIcon, PhoneIcon, GlobeAltIcon} from "@heroicons/react/24/outline";
 import TopTitle from "../common/TopTitle.tsx";
 import map from '../../assets/map.png';
@@ -26,8 +26,8 @@ const Contact: React.FC = () => (
 
                     <div className=" text-left flex-1 max-w-56">
                         <h2 className="text-2xl font-bold text-customRed mb-6">Kontakt</h2>
-                        <p>{ADDRES.street + " " + ADDRES.streetNumber}</p>
-                        <p>{ADDRES.postNumber + " " + ADDRES.city}</p>
+                        <p>{ADDRESS.street + " " + ADDRESS.streetNumber}</p>
+                        <p>{ADDRESS.postNumber + " " + ADDRESS.city}</p>
 
                         <div className="top-cotact-container flex-col items-center justify-center mt-5">
                             <div className="phone flex items-center">
