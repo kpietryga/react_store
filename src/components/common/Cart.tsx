@@ -11,7 +11,7 @@ const Cart: React.FC = () => {
 
     return (
         <div
-            className={`fixed top-0 bottom-0 right-0 bg-white shadow-xl p-9 transition-all duration-300 ${
+            className={`fixed top-0 bottom-0 right-0 bg-white shadow-xl p-9 transition-all duration-300 z-50 ${
                 isCartHidden ? "left-full" : "left-2/3"
             }`}
         >

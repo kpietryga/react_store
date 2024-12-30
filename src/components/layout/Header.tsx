@@ -3,22 +3,46 @@ import {Link} from "react-router-dom";
 import rozaLogo from '../../assets/roza-logo.png';
 import {ShoppingCartIcon, PhoneIcon, MagnifyingGlassIcon, HomeIcon, EnvelopeIcon} from "@heroicons/react/24/outline";
 import {TEL, EMAIL} from "../common/ContactData.tsx";
+import {useEffect, useState} from "react";
 // import Products from "../pages/Products.tsx";
 
 const liClass = 'px-7 py-5'
 
 const Header = () => {
+
+    const [isFixed, setIsFixed] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 80) {
+                setIsFixed(true);
+            } else {
+                setIsFixed(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Czyszczenie event listenera po unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+
+
     return (
         <header className="bg-white text-customGrayText">
             {/*<TopBar />*/}
 
             <div className="max-w-screen-xl m-auto flex justify-between items-center px-9 py-4" id="top-header">
                 <div id="logo" className="logo">
-
                     <Link to="/">
                         <img src={rozaLogo} alt="Logo" className="h-12 w-auto"/>
                     </Link>
                 </div>
+
                 <div className="top-cotact-container flex-col items-center justify-center">
                     <div className="phone flex items-center">
                         <a href={"tel:"+ TEL} className="flex gap-3">
@@ -45,7 +69,11 @@ const Header = () => {
 
             </div>
 
-            <nav className="flex justify-center border-t-gray-200 border-t">
+            <div className="min-h-[65px]">
+            <nav className={`${
+                isFixed ? 'fixed top-0 left-0 w-full ' : 'relative'
+            } transition-all duration-300 bg-white flex justify-center border-t-gray-200 border-t w-full`}>
+
                 <ul className="flex max-w-screen-xl uppercase">
                     <li className={liClass}><Link className="flex gap-2 hover:text-customRed" to="/"> <HomeIcon
                         className="h-5 w-5"/></Link></li>
@@ -56,7 +84,7 @@ const Header = () => {
                                                             to="/contact">Kontakt</Link></li>
                 </ul>
             </nav>
-
+            </div>
         </header>
     );
 };

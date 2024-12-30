@@ -9,7 +9,7 @@ const Contact: React.FC = () => (
 
     <>
         <TopTitle title="Kontak" subTitle="zostaw nam wiadomośc"/>
-        <main className="max-w-screen-xl mx-auto text-center p-12">
+        <main className="max-w-screen-xl mx-auto text-center p-12 animate-fadeIn">
             <div>
                 <div className="flex justify-around align-items-center mb-9 ">
                     <div className="p-9 shadow-lg rounded-xl bg-slate-50">
