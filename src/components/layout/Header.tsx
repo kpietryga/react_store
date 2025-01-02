@@ -56,9 +56,9 @@ const Header = () => {
                     </div>
 
                 </div>
-                <div className="search flex" id="search-container">
-                    <input className="" id="search-input" type="text" placeholder="Wyszukaj..."/>
-                    <MagnifyingGlassIcon className="h-6 w-6 text-gray-200 "/>
+                <div className="search flex relative" id="search-container">
+                    <input className="border rounded-xl p-2" id="search-input" type="text" placeholder="Wyszukaj..."/>
+                    <MagnifyingGlassIcon className="absolute h-6 w-6 text-gray-200 right-2 top-1/2 -translate-y-1/2"/>
                 </div>
 
                 <div className="flex gap-2">
