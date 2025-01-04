@@ -1,10 +1,20 @@
 import React from "react";
 //import {HomeIcon} from '@heroicons/react/24/outline';
 //import hero from '../../assets/hero.jpg';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 
 const Home: React.FC = () => {
+
+    const texts = [
+        "Tekst pierwszy",
+        "Tekst drugi",
+        "Tekst trzeci",
+        "Tekst czwarty",
+    ];
+
+
     return (
 <>
     <div className="bg-custom-pattern bg-cover">
@@ -12,6 +22,19 @@ const Home: React.FC = () => {
             <h1 className="text-4xl font-bold text-white text-left animate-fadeIn">Kwiaciarnia Róża</h1>
             <div className="overflow-hidden">
                 <h2 className="text-2xl text-white font-bold animate-fadeIn">Spraw radość twoim bliskim</h2>
+
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    loop={true}
+                >
+                    {texts.map((text, index) => (
+                        <SwiperSlide key={index}>
+                            <h2>{text}</h2>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
             </div>
         </div>
     </div>
