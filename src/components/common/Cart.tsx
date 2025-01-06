@@ -22,6 +22,16 @@ const Cart: React.FC = () => {
                     className="h-8 w-8 text-gray-500 hover:rotate-180 transition duration-150"
                 />
             </div>
+
+
+            <div className="flex justify-between">
+                <p>Cena</p>
+                <p>0,00</p>
+            </div>
+
+            <div className="flex justify-between">
+                <p>suma</p>
+            </div>
         </div>
     );
 };
