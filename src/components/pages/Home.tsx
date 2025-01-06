@@ -1,19 +1,7 @@
 import React from "react";
-//import {HomeIcon} from '@heroicons/react/24/outline';
-//import hero from '../../assets/hero.jpg';
-// import {Swiper, SwiperSlide} from 'swiper/react';
-// import 'swiper/css';
-
+import PromotedProducts from "../common/PromotedProducts";
 
 const Home: React.FC = () => {
-
-    // const texts = [
-    //     "Tekst pierwszy",
-    //     "Tekst drugi",
-    //     "Tekst trzeci",
-    //     "Tekst czwarty",
-    // ];
-
 
     return (
         <>
@@ -22,31 +10,13 @@ const Home: React.FC = () => {
                     <h1 className="text-4xl font-bold text-white text-left animate-fadeIn">Kwiaciarnia Róża</h1>
                     <div className="overflow-hidden">
                         <h2 className="text-2xl text-white font-bold animate-fadeIn">Spraw radość twoim bliskim</h2>
-                        {/*<button type="button"*/}
-                        {/*        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default*/}
-                        {/*</button>*/}
-                        {/*<Swiper*/}
-                        {/*    spaceBetween={50}*/}
-                        {/*    slidesPerView={1}*/}
-                        {/*    loop={true}*/}
-                        {/*>*/}
-                        {/*    {texts.map((text, index) => (*/}
-                        {/*        <SwiperSlide key={index}>*/}
-                        {/*            <h2>{text}</h2>*/}
-                        {/*        </SwiperSlide>*/}
-                        {/*    ))}*/}
-                        {/*</Swiper>*/}
-
                     </div>
                 </div>
             </div>
             <main className="max-w-screen-xl mx-auto text-center px-9">
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi est odio perspiciatis
-                    quis
-                    ullam veniam! Accusantium aliquam aperiam, architecto dignissimos eos mollitia non possimus quos sed
-                    tenetur
-                    velit voluptatem.
-                </div>
+
+                <PromotedProducts />
+
                 <div>Accusantium aliquid amet beatae dolores eum id libero mollitia odio temporibus vel. Exercitationem
                     id iste
                     necessitatibus. A fuga nulla officia quia quibusdam similique voluptatem! Autem quae qui ratione
