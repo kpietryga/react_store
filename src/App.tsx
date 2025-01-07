@@ -8,8 +8,8 @@ import Products from "./components/pages/Products";
 import NotFound from "./components/pages/NotFound";
 import Offer from "./components/pages/Offer.tsx";
 import Cart from "./components/common/Cart.tsx";
+import Checkout from "./components/pages/Checkout.tsx";
 // import TopTitle from "./components/common/TopTitle.tsx";
-// import React from "react";
 
 const App = () => {
     return (
@@ -22,6 +22,7 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/offer" element={<Offer />} />
+                    <Route path="/checkout" element={<Checkout />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             <Footer />
