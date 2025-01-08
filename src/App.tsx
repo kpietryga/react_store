@@ -9,13 +9,19 @@ import NotFound from "./components/pages/NotFound";
 import Offer from "./components/pages/Offer.tsx";
 import Cart from "./components/common/Cart.tsx";
 import Checkout from "./components/pages/Checkout.tsx";
+import {useState} from "react";
 // import TopTitle from "./components/common/TopTitle.tsx";
 
+
 const App = () => {
+    const [isCartHidden, setIsCartHidden] = useState(false);
+
+    const handleClick = (bool:boolean):void=> setIsCartHidden(bool)
+
     return (
         <Router>
-            <Cart/>
-            <Header />
+            <Cart hidden={isCartHidden} onClick={() => setIsCartHidden(true)}/>
+            <Header onClick={() =>handleClick(false)}/>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/products" element={<Products />} />

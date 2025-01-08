@@ -8,7 +8,11 @@ import {useEffect, useState} from "react";
 
 const liClass = 'px-7 py-5'
 
-const Header = () => {
+interface HeaderProps {
+    onClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onClick }) => {
 
     const [isFixed, setIsFixed] = useState(false);
 
@@ -30,8 +34,6 @@ const Header = () => {
     }, []);
 
 
-
-
     return (
         <header className="bg-white text-customGrayText">
             {/*<TopBar />*/}
@@ -45,7 +47,7 @@ const Header = () => {
 
                 <div className="top-cotact-container flex-col items-center justify-center">
                     <div className="phone flex items-center">
-                        <a href={"tel:"+ TEL} className="flex gap-3">
+                        <a href={"tel:" + TEL} className="flex gap-3">
                             <PhoneIcon className="h-5 w-5 text-customRed "/>
                             <p className="text-customBlack ">{TEL}</p></a>
                     </div>
@@ -63,28 +65,28 @@ const Header = () => {
 
                 <div className="flex gap-2">
                     <p>0,00 zł</p>
-                    <Link to="#"><ShoppingCartIcon className="h-6 w-6 text-customRed"/></Link>
-
+                    <button className="flex items-center" onClick={onClick}><ShoppingCartIcon className="h-6 w-6 text-customRed"/></button>
                 </div>
 
             </div>
 
             <div className="min-h-[65px]">
-            <nav className={`${
-                isFixed ? 'fixed top-0 left-0 w-full ' : 'relative'
-            } transition-all duration-300 bg-white flex justify-center border-t-gray-200 border-t w-full`}>
+                <nav className={`${
+                    isFixed ? 'fixed top-0 left-0 w-full ' : 'relative'
+                } transition-all duration-300 bg-white flex justify-center border-t-gray-200 border-t w-full`}>
 
-                <ul className="flex max-w-screen-xl uppercase">
-                    <li className={liClass}><Link className="flex gap-2 hover:text-customRed" to="/"> <HomeIcon
-                        className="h-5 w-5"/></Link></li>
-                    <li className={liClass}><Link className="hover:text-customRed" to="/products">Sklep</Link></li>
-                    <li className={liClass}><Link className="hover:text-customRed" to="/about">O nas</Link></li>
-                    <li className={liClass}><Link className="hover:text-customRed" to="/offer">Usługi</Link></li>
-                    <li className={liClass}><Link className="hover:text-customRed" to="/checkout">Zamowienie</Link></li>
-                    <li className={liClass + " flex"}><Link className="hover:text-customRed"
-                                                            to="/contact">Kontakt</Link></li>
-                </ul>
-            </nav>
+                    <ul className="flex max-w-screen-xl uppercase">
+                        <li className={liClass}><Link className="flex gap-2 hover:text-customRed" to="/"> <HomeIcon
+                            className="h-5 w-5"/></Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/products">Sklep</Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/about">O nas</Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/offer">Usługi</Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/checkout">Zamowienie</Link>
+                        </li>
+                        <li className={liClass + " flex"}><Link className="hover:text-customRed"
+                                                                to="/contact">Kontakt</Link></li>
+                    </ul>
+                </nav>
             </div>
         </header>
     );
