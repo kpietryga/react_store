@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "../../api/Api.tsx";
 
+interface Image {
+    src: string;
+    alt: string;
+}
+
 interface Product {
     id: number;
     name: string;
     price: number;
-    images: []
-    // Dodaj inne pola zgodnie z danymi, które zwraca `fetchData`.
+    images: Image[];
 }
+
 
 const Products: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
 
+
     useEffect(() => {
+        const params = { params: {per_page: 9,}}
         const fetchProducts = async (): Promise<void> => {
             try {
-                const productsData: Product[] = await fetchData("products");
-                console.log(productsData);
+                const productsData = await fetchData("products", params);
                 setProducts(productsData);
             } catch (error) {
                 console.error("Błąd:", error);
             }
         };
-
-        fetchProducts().catch((error) => console.log(error));
-    }, []);
+        fetchProducts().catch();
+    }, [products]);
 
     return (
         <>
@@ -37,7 +42,7 @@ const Products: React.FC = () => {
                             <img src={product.images[0].src} alt={product.name} />
                             <p>{product.name}</p>
                             <p>Cena: {product.price} PLN</p>
-
+                            <button>Dodaj do koszyka </button>
                         </li>
                     ))}
                 </ul>

@@ -4,9 +4,9 @@ import rozaLogo from '../../assets/roza-logo.png';
 import {ShoppingCartIcon, PhoneIcon, MagnifyingGlassIcon, HomeIcon, EnvelopeIcon} from "@heroicons/react/24/outline";
 import {TEL, EMAIL} from "../common/ContactData.tsx";
 import {useEffect, useState} from "react";
+import HamburgerMenu from "./HamburgerMenu.tsx";
 // import Products from "../pages/Products.tsx";
 
-const liClass = 'px-7 py-5'
 
 interface HeaderProps {
     onClick: () => void;
@@ -75,18 +75,10 @@ const Header: React.FC<HeaderProps> = ({ onClick }) => {
                     isFixed ? 'fixed top-0 left-0 w-full ' : 'relative'
                 } transition-all duration-300 bg-white flex justify-center border-t-gray-200 border-t w-full`}>
 
-                    <ul className="flex max-w-screen-xl uppercase">
-                        <li className={liClass}><Link className="flex gap-2 hover:text-customRed" to="/"> <HomeIcon
-                            className="h-5 w-5"/></Link></li>
-                        <li className={liClass}><Link className="hover:text-customRed" to="/products">Sklep</Link></li>
-                        <li className={liClass}><Link className="hover:text-customRed" to="/about">O nas</Link></li>
-                        <li className={liClass}><Link className="hover:text-customRed" to="/offer">Usługi</Link></li>
-                        <li className={liClass}><Link className="hover:text-customRed" to="/checkout">Zamowienie</Link>
-                        </li>
-                        <li className={liClass + " flex"}><Link className="hover:text-customRed"
-                                                                to="/contact">Kontakt</Link></li>
-                    </ul>
+                    <HamburgerMenu />
                 </nav>
+
+
             </div>
         </header>
     );
