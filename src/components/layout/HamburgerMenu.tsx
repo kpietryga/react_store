@@ -57,27 +57,19 @@ const HamburgerMenu: React.FC = () => {
             {/* Menu rozwijane */}
             {isOpen && (
                 <div className="absolute right-0 top-12 w-48 bg-white border rounded-lg shadow-lg md:hidden">
-                    <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                        Link 1
-                    </a>
-                    <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                        Link 2
-                    </a>
-                    <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                        Link 3
-                    </a>
+                    <ul className="max-w-screen-xl uppercase">
+                        <li className={liClass}><Link className="flex gap-2 hover:text-customRed" to="/"> <HomeIcon
+                            className="h-5 w-5"/></Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/products">Sklep</Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/about">O nas</Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/offer">Usługi</Link></li>
+                        <li className={liClass}><Link className="hover:text-customRed" to="/checkout">Zamowienie</Link>
+                        </li>
+                        <li className={liClass + " flex"}><Link className="hover:text-customRed"
+                                                                to="/contact">Kontakt</Link></li>
+                    </ul>
                 </div>
             )}
-
 
 
             {/* Menu desktopowe */}
