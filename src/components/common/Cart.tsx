@@ -10,8 +10,8 @@ const Cart: React.FC<CartProps> = ({ hidden, onClick }) =>{
 
     return (
         <div
-            className={`fixed top-0 bottom-0 right-0 bg-white shadow-xl p-9 transition-all duration-300 z-50 ${
-                hidden ? "left-full" : "left-2/3"
+            className={`fixed top-0 bottom-0  w-96 bg-white shadow-xl p-9 transition-all duration-300 z-50 ${
+                hidden ? "-right-96" : " right-0"
             }`}
         >
             <div className="flex justify-between">
@@ -20,6 +20,11 @@ const Cart: React.FC<CartProps> = ({ hidden, onClick }) =>{
                     onClick={onClick}
                     className="h-8 w-8 text-gray-500 hover:rotate-180 transition duration-150"
                 />
+            </div>
+
+            <div>
+                <div className="flex justify-between"> Product name </div>
+                <div className="flex justify-between"> Cena: 12 zł</div>
             </div>
 
 
