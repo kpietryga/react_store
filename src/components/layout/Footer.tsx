@@ -1,12 +1,12 @@
 import {ADDRESS, CITIES, EMAIL, PHONE_NUMBERS} from "../common/ContactData.tsx";
 import rozaLogo from "../../assets/roza-logo.png";
-const divClass = "flex-1 py-6 text-white text-[14px] text-left"
+const divClass = "py-6 w-56 text-white text-[14px] text-left"
 
 const Footer = () => {
 
     return (
         <footer className="footer px-9 bg-[#272829]  ">
-            <div className="max-w-7xl text-center m-auto flex justify-between gap-20">
+            <div className="max-w-7xl w-text-center m-auto flex justify-between flex-col md:flex-row">
                 <div className={divClass + " text-left"}>
                     <img src={rozaLogo} alt="Logo" className="h-8 w-auto mb-2"/>
                     Oferujemy bukiety, upominki i kosze na każdą możliwą okazję. Dzięki
@@ -26,17 +26,19 @@ const Footer = () => {
 
                 <div className={divClass}>
 
+                    <p className="font-bold mb-2">Kontakt</p>
+
 
                     <ul>
-                    {PHONE_NUMBERS.map((nr, i) => (
-                            <li key={"nr" + i}>{nr}</li>
+                        {PHONE_NUMBERS.map((nr, i) => (
+                            <li key={"nr" + i}><a href={nr}> {nr} </a></li>
                         ))}
                     </ul>
 
-                    <p>{EMAIL}</p>
+                    <p><a href={EMAIL}>{EMAIL}</a></p>
                 </div>
                 <div className={divClass}>
-                    <p className="font-bold mb-2">Obsługiwane miasta:</p>
+                <p className="font-bold mb-2">Obsługiwane miasta:</p>
                     {CITIES.map((city, i) => (<div key={"nr" + i} className="inline-block ml-1"> {city} </div>))}
                 </div>
             </div>
