@@ -1,5 +1,5 @@
 import React from "react";
-import PromotedProducts from "../common/PromotedProducts";
+import PromotedProducts from "../common/Products.tsx";
 
 const Home: React.FC = () => {
 

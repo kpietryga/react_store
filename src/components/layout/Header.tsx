@@ -1,11 +1,16 @@
 import {Link} from "react-router-dom";
 // import TopBar from "../common/TopBar.tsx";
 import rozaLogo from '../../assets/roza-logo.png';
-import {ShoppingCartIcon, PhoneIcon, MagnifyingGlassIcon, HomeIcon, EnvelopeIcon} from "@heroicons/react/24/outline";
+import {
+    ShoppingCartIcon,
+    PhoneIcon,
+    MagnifyingGlassIcon,
+    EnvelopeIcon
+} from "@heroicons/react/24/outline";
 import {TEL, EMAIL} from "../common/ContactData.tsx";
 import {useEffect, useState} from "react";
 import HamburgerMenu from "./HamburgerMenu.tsx";
-// import Products from "../pages/Products.tsx";
+// import Shop from "../pages/Shop.tsx";
 
 
 interface HeaderProps {

@@ -1,10 +1,10 @@
-import PromotedProducts from "../common/PromotedProducts.tsx";
+import PromotedProducts from "../common/Products.tsx";
 import TopTitle from "../common/TopTitle.tsx";
 import React from "react";
 //import hero from '../../assets/hero.jpg';
 //import rozaLogo from "../../assets/roza-logo.png";
 
-const Products: React.FC = () => {
+const Shop: React.FC = () => {
 
     return (
         <>
@@ -44,4 +44,4 @@ const Products: React.FC = () => {
     )
 }
 
-export default Products;
+export default Shop;

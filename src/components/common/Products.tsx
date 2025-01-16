@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import {fetchData} from "../../api/Api.tsx";
 import {ArrowRightCircleIcon, ArrowPathIcon} from "@heroicons/react/24/outline";
 
@@ -16,6 +17,7 @@ interface Product {
 }
 const Products: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const params = {params: {per_page: 3,}}
@@ -47,6 +49,7 @@ const Products: React.FC = () => {
                                 <button className="rounded-bl-md bg-customRed  p-2 text-white flex-grow"> + Dodaj do koszyka
                                 </button>
                                 <button
+                                    onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
                                     className="rounded-br-md bg-customRose text-white p-2 flex-grow flex items-center gap-2 justify-center">Więcej <ArrowRightCircleIcon
                                     className="h-8 w-8"/></button>
                             </div>
