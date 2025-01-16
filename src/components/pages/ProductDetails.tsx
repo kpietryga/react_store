@@ -39,16 +39,20 @@ const ProductDetails: React.FC = () => {
                 <div className="w-1/2  px-9">
                     <h1 className="text-customBlack text-3xl mb-4">{product.name}</h1>
                     <p className="text-customRed text-xl mb-4">Cena: {product.price} PLN</p>
+                    <p className="font-bold mb-4">Dostawa tylko na terenie Gliwic</p>
                     <p className="text-customGrayText mb-4">{product.description}</p>
+                    <p className=" text-customRed mb-4">powyzej 100 zł dostawa gratis</p>
 
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <input className=" p-2 rounded border border-customBlack" min="1" max="99" step="1"
                                    type="number" id="quantity" defaultValue="1"/>
                         </div>
-                        <button type="submit" className="rounded bg-customRed  p-2 text-white flex-grow"> + Dodaj do
+                        <button type="submit" className="rounded bg-customRed  p-2 text-white flex-grow mb-4"> + Dodaj
+                            do
                             koszyka
                         </button>
+
                     </form>
 
                 </div>
@@ -58,5 +62,5 @@ const ProductDetails: React.FC = () => {
     );
 }
 
-    export default ProductDetails
+export default ProductDetails
 

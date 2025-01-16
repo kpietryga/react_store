@@ -3,6 +3,7 @@ import {ADDRESS, EMAIL, TEL} from "../common/ContactData.tsx";
 import {EnvelopeIcon, PhoneIcon, GlobeAltIcon} from "@heroicons/react/24/outline";
 import TopTitle from "../common/TopTitle.tsx";
 import map from '../../assets/map.png';
+import ContactAccordion from "../common/ContactAccordion.tsx";
 
 
 const Contact: React.FC = () => (
@@ -10,6 +11,9 @@ const Contact: React.FC = () => (
     <>
         <TopTitle title="Kontak" subTitle="zostaw nam wiadomośc"/>
         <main className="max-w-screen-xl mx-auto text-center p-12 animate-fadeIn">
+
+            <ContactAccordion />
+
             <div>
                 <div className="flex justify-around align-items-center mb-9 ">
                     <div className="p-9 shadow-lg rounded-xl bg-slate-50">
@@ -54,6 +58,9 @@ const Contact: React.FC = () => (
                     </div>
                 </div>
             </div>
+
+
+
         </main>
     </>
 
