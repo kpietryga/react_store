@@ -1,5 +1,12 @@
 //import React, {useState} from "react";
 import {XCircleIcon} from "@heroicons/react/24/outline";
+import CartItem from "./CartItem.tsx";
+
+const product = {
+    name: "bukiet",
+    price: "123",
+    url: "https://woo.pietryga.com.pl/wp-content/uploads/2024/12/rozowafantazja-1.jpg",
+}
 
 interface CartProps {
     hidden: boolean;
@@ -22,20 +29,14 @@ const Cart: React.FC<CartProps> = ({ hidden, onClick }) =>{
                 />
             </div>
 
-            <div>
-                <div className="flex justify-between"> Product name </div>
-                <div className="flex justify-between"> Cena: 12 zł</div>
+            <CartItem product={product} />
+            <CartItem product={product} />
+            <CartItem product={product} />
+
+            <div className="">
+                <p>suma: 100,00 zł</p>
             </div>
 
-
-            <div className="flex justify-between">
-                <p>Cena</p>
-                <p>0,00</p>
-            </div>
-
-            <div className="flex justify-between">
-                <p>suma</p>
-            </div>
         </div>
     );
 };
