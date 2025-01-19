@@ -35,7 +35,7 @@ export default function App() {
         <div className="mx-2 mb-9 border-t">
             {/* `transitionTimeout` prop should be equal to the transition duration in CSS */}
             <Accordion transition transitionTimeout={200}>
-                <AccordionItem header="What is Lorem Ipsum?" initialEntered>
+                <AccordionItem header="Gliwice" initialEntered>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -43,7 +43,7 @@ export default function App() {
                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </AccordionItem>
 
-                <AccordionItem header="Where does it come from?">
+                <AccordionItem header="Bytom">
                     Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
                     erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
                     erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
@@ -51,7 +51,7 @@ export default function App() {
                     erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.
                 </AccordionItem>
 
-                <AccordionItem header="Why do we use it?">
+                <AccordionItem header="Katowice">
                     Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
                     Fusce vulputate purus sed tempus feugiat.Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
                     Fusce vulputate purus sed tempus feugiat.Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
