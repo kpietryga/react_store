@@ -1,10 +1,15 @@
-import {Accordion, AccordionItem as Item} from "@szhsin/react-accordion";
+import {Accordion, AccordionItem as Item, AccordionItemProps} from "@szhsin/react-accordion";
 import {ChevronDownIcon} from "@heroicons/react/16/solid";
+import React from "react";
+
+interface AccordionItemType extends AccordionItemProps {
+    header: React.ReactNode;
+}
 
 /**
  * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
  */
-const AccordionItem = ({header, ...rest}) => (
+const AccordionItem: React.FC<AccordionItemType> = ({header, ...rest}) => (
     <Item
         {...rest}
         header={({state: {isEnter}}) => (

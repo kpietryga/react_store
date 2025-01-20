@@ -5,8 +5,8 @@ const divClass = "py-6 w-56 text-white text-[14px] text-left"
 const Footer = () => {
 
     return (
-        <footer className="footer px-9 bg-[#272829]  ">
-            <div className="max-w-7xl w-text-center m-auto flex justify-between flex-col md:flex-row">
+        <footer className="footer bg-[#272829]  ">
+            <div className="max-w-7xl px-9 w-text-center m-auto flex justify-between flex-col md:flex-row">
                 <div className={divClass + " text-left"}>
                     <img src={rozaLogo} alt="Logo" className="h-8 w-auto mb-2"/>
                     Oferujemy bukiety, upominki i kosze na każdą możliwą okazję. Dzięki

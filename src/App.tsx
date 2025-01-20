@@ -7,7 +7,7 @@ import Footer from "./components/layout/Footer";
 import Shop from "./components/pages/Shop.tsx";
 import NotFound from "./components/pages/NotFound";
 import Offer from "./components/pages/Offer.tsx";
-import Cart from "./components/common/Cart.tsx";
+import Cart from "./components/common/Cart/Cart.tsx";
 import Checkout from "./components/pages/Checkout.tsx";
 import {useState} from "react";
 import ProductDetails from "./components/pages/ProductDetails";
