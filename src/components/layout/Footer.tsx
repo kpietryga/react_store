@@ -30,8 +30,8 @@ const Footer = () => {
 
 
                     <ul>
-                        {PHONE_NUMBERS.map((nr, i) => (
-                            <li key={"nr" + i}><a href={nr}> {nr} </a></li>
+                        {PHONE_NUMBERS.map(nr => (
+                            <li key={nr.tel}><a href={nr.url}> {nr.tel} </a></li>
                         ))}
                     </ul>
 
