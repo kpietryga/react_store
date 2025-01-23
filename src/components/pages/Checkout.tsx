@@ -1,24 +1,36 @@
-
 import TopTitle from "../common/TopTitle.tsx";
-
+import {useState} from "react";
 
 const Checkout: React.FC = () => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [street, setStreet] = useState("");
+
+    const onSendForm = (e) => {
+        e.preventDefault();
+        alert(`${firstName} ${lastName} ${street}`);
+    }
 
 
     return (
         <>
             <TopTitle title="Zamówienie" subTitle="Poznaj nasze usługi" />
             <main className="max-w-screen-xl mx-auto text-justify p-12 animate-fadeIn grid grid-cols-2 gap-9">
+                <form onSubmit={onSendForm}>
                 <div className="p-9 bg-slate-100 rounded-xl">
                     <div className="py-4">
                         <label htmlFor="firstName" className="block text-gray-700 font-medium mb-2">
                             Imię
                         </label>
                         <input
+                            onChange={(e) => {
+                                setFirstName(e.target.value)
+                        }}
                             type="text"
                             id="firstName"
                             className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
                         />
+
                     </div>
                     <div className="py-4">
                         <label htmlFor="lastName" className="block text-gray-700 font-medium mb-2">
@@ -28,16 +40,23 @@ const Checkout: React.FC = () => {
                             type="text"
                             id="lastName"
                             className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
+                            onChange={(e) => {
+                                setLastName(e.target.value)
+                            }}
                         />
                     </div>
                     <div className="py-4">
                         <label htmlFor="address" className="block text-gray-700 font-medium mb-2">
-                            Adres
+                            street
                         </label>
+
                         <input
                             type="text"
                             id="address"
                             className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
+                            onChange={(e) => {
+                                setStreet(e.target.value)
+                            }}
                         />
                     </div>
                     <div className="py-4">
@@ -100,11 +119,17 @@ const Checkout: React.FC = () => {
                         <textarea
                             id="notes"
                             className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-
                         ></textarea>
                     </div>
+
+                    <div className="py-4">
+                        <button type="submit">Wyślij</button>
+                    </div>
+
+
                 </div>
                 <div className="border rounded-xl"></div>
+                </form>
             </main>
         </>
 
