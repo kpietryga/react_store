@@ -1,6 +1,7 @@
 import {XCircleIcon} from "@heroicons/react/24/outline";
 import CartItem from "./CartItem.tsx";
-import {useState} from "react";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
 
 interface Product{
     id: number;
@@ -50,8 +51,6 @@ const Cart: React.FC<CartProps> = ({ hidden, onClick }) =>{
     })
 
 
-
-
     return (
         <div
             className={`fixed top-0 bottom-0  w-96 bg-white shadow-xl p-9 transition-all duration-300 z-50 ${
@@ -69,6 +68,13 @@ const Cart: React.FC<CartProps> = ({ hidden, onClick }) =>{
             <div className="">
                 <p>suma: {sumItems(products)} zł</p>
             </div>
+
+            <div  className="my-4" >
+                <Link className="text-center bg-transparent hover:bg-customRed text-customRed font-semibold hover:text-white py-2 px-4 border border-customRed hover:border-transparent rounded" to="/checkout">Przejdź do zamówienia</Link>
+            </div>
+            {/*<div className="text-center bg-transparent hover:bg-customRed text-customRed font-semibold hover:text-white py-2 px-4 border border-customRed hover:border-transparent rounded">*/}
+            {/*    <button>przejdż do koszyka</button>*/}
+            {/*</div>*/}
         </div>
     );
 };
