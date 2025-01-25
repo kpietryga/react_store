@@ -20,12 +20,13 @@ const CartItem: React.FC<CartItemProps> = ({ product, remove }) => (
             <div className="text-customRed font-bold">{product.name}</div>
             <div>Cena: {product.price} zł</div>
             <div className="text-right">
+                {remove &&
                 <button
                     onClick={() => remove(product.id)}
                     className="text-red-500 hover:underline"
                 >
                     Usuń
-                </button>
+                </button>}
             </div>
         </div>
     </div>
