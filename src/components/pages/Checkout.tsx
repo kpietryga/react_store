@@ -1,6 +1,7 @@
 import TopTitle from "../common/TopTitle.tsx";
 import React, {useState} from "react";
 import CartItem from "../common/Cart/CartItem.tsx";
+import InputField from "../common/FromFields/InputField.tsx";
 
 
 const Checkout: React.FC = () => {
@@ -27,20 +28,7 @@ const Checkout: React.FC = () => {
             <main className="max-w-screen-xl mx-auto text-justify p-12 animate-fadeIn grid grid-cols-2 gap-9">
                 <div><form onSubmit={onSendForm}>
                     <div className="p-9 bg-slate-100 rounded-xl">
-                        <div className="py-4">
-                            <label htmlFor="firstName" className="block text-gray-700 font-medium mb-2">
-                                Imię
-                            </label>
-                            <input
-                                onChange={(e) => {
-                                    setFirstName(e.target.value)
-                                }}
-                                type="text"
-                                id="firstName"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            />
-
-                        </div>
+                        <InputField id="firstName" label="Imię" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         <div className="py-4">
                             <label htmlFor="lastName" className="block text-gray-700 font-medium mb-2">
                                 Nazwisko
