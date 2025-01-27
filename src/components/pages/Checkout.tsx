@@ -2,12 +2,14 @@ import TopTitle from "../common/TopTitle.tsx";
 import React, {useState} from "react";
 import CartItem from "../common/Cart/CartItem.tsx";
 import InputField from "../common/FromFields/InputField.tsx";
+import SelectField from "../common/FromFields/SelectField.tsx";
 
 
 const Checkout: React.FC = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [street, setStreet] = useState("");
+
 
     const onSendForm = (e) => {
         e.preventDefault();
@@ -29,33 +31,8 @@ const Checkout: React.FC = () => {
                 <div><form onSubmit={onSendForm}>
                     <div className="p-9 bg-slate-100 rounded-xl">
                         <InputField id="firstName" label="Imię" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                        <div className="py-4">
-                            <label htmlFor="lastName" className="block text-gray-700 font-medium mb-2">
-                                Nazwisko
-                            </label>
-                            <input
-                                type="text"
-                                id="lastName"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                                onChange={(e) => {
-                                    setLastName(e.target.value)
-                                }}
-                            />
-                        </div>
-                        <div className="py-4">
-                            <label htmlFor="address" className="block text-gray-700 font-medium mb-2">
-                                street
-                            </label>
-
-                            <input
-                                type="text"
-                                id="address"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                                onChange={(e) => {
-                                    setStreet(e.target.value)
-                                }}
-                            />
-                        </div>
+                        <InputField id="lastName" label="Nazwisko" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        <InputField id="street" label="Ulica" value={street} onChange={(e) => setStreet(e.target.value)} />
                         <div className="py-4">
                             <label htmlFor="city" className="block text-gray-700 font-medium mb-2">
                                 Miasto
@@ -76,19 +53,15 @@ const Checkout: React.FC = () => {
                                 className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
                             />
                         </div>
-                        <div className="py-4">
-                            <label htmlFor="country" className="block text-gray-700 font-medium mb-2">
-                                Kraj
-                            </label>
-                            <select
-                                id="country"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            >
-                                <option value="Polska">Polska</option>
-                                <option value="Niemcy">Niemcy</option>
-                                <option value="Francja">Francja</option>
-                            </select>
-                        </div>
+                        <SelectField
+                            id="country"
+                            label="Kraj"
+                            options={[
+                                { value: "Polska", label: "Polska" },
+                                { value: "Niemcy", label: "Niemcy" },
+                                { value: "Francja", label: "Francja" },
+                            ]}
+                        />
                         <div className="py-4">
                             <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
                                 Numer telefonu
