@@ -9,11 +9,14 @@ const Checkout: React.FC = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [street, setStreet] = useState("");
+    const [streetNumber, setStreetNumber] = useState("");
+    const [city, setCity] = useState("");
+    const [postCode, setPostCode] = useState("");
 
 
     const onSendForm = (e) => {
         e.preventDefault();
-        alert(`${firstName} ${lastName} ${street}`);
+        alert(`${firstName} ${lastName} ${street} ${city} ${postCode}`);
     }
 
     const pro = {
@@ -33,26 +36,9 @@ const Checkout: React.FC = () => {
                         <InputField id="firstName" label="Imię" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         <InputField id="lastName" label="Nazwisko" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         <InputField id="street" label="Ulica" value={street} onChange={(e) => setStreet(e.target.value)} />
-                        <div className="py-4">
-                            <label htmlFor="city" className="block text-gray-700 font-medium mb-2">
-                                Miasto
-                            </label>
-                            <input
-                                type="text"
-                                id="city"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            />
-                        </div>
-                        <div className="py-4">
-                            <label htmlFor="postalCode" className="block text-gray-700 font-medium mb-2">
-                                Kod pocztowy
-                            </label>
-                            <input
-                                type="text"
-                                id="postalCode"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            />
-                        </div>
+                        <InputField id="streetNumber" label="Numer" value={streetNumber} onChange={(e) => setStreetNumber(e.target.value)} />
+                        <InputField id="city" label="Miasto" value={city} onChange={(e) => setCity(e.target.value)} />
+                        <InputField id="postCode" label="Kod Pocztowy" value={postCode} onChange={(e) => setPostCode(e.target.value)} />
                         <SelectField
                             id="country"
                             label="Kraj"
