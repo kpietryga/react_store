@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import CartItem from "../common/Cart/CartItem.tsx";
 import InputField from "../common/FromFields/InputField.tsx";
 import SelectField from "../common/FromFields/SelectField.tsx";
-
+import TextareaField from "../common/FromFields/TextareaField.tsx";
 
 const Checkout: React.FC = () => {
     const [firstName, setFirstName] = useState("");
@@ -12,11 +12,11 @@ const Checkout: React.FC = () => {
     const [streetNumber, setStreetNumber] = useState("");
     const [city, setCity] = useState("");
     const [postCode, setPostCode] = useState("");
-
+    const [additional, setAdditional] = useState("");
 
     const onSendForm = (e) => {
         e.preventDefault();
-        alert(`${firstName} ${lastName} ${street} ${city} ${postCode}`);
+        alert(`${firstName} ${lastName} ${street} ${city} ${postCode} ${additional}`);
     }
 
     const pro = {
@@ -68,15 +68,7 @@ const Checkout: React.FC = () => {
                                 className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
                             />
                         </div>
-                        <div className="py-4">
-                            <label htmlFor="notes" className="block text-gray-700 font-medium mb-2">
-                                Dodatkowe uwagi
-                            </label>
-                            <textarea
-                                id="notes"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            ></textarea>
-                        </div>
+                        <TextareaField id="additional" label="Dodatkowe Uwagi" value={additional} onChange={(e) => setAdditional(e.target.value)} />
 
                         <div className="py-4">
                             <button type="submit">Wyślij</button>
