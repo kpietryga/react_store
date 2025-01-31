@@ -13,6 +13,8 @@ const Checkout: React.FC = () => {
     const [city, setCity] = useState("");
     const [postCode, setPostCode] = useState("");
     const [additional, setAdditional] = useState("");
+    const [tel, setTel] = useState("");
+
 
     const onSendForm = (e) => {
         e.preventDefault();
@@ -48,16 +50,7 @@ const Checkout: React.FC = () => {
                                 { value: "Francja", label: "Francja" },
                             ]}
                         />
-                        <div className="py-4">
-                            <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                                Numer telefonu
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            />
-                        </div>
+                        <InputField id="tel" label="Telefon" value={tel} onChange={(e) => setTel(e.target.value)} />
                         <div className="py-4">
                             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                                 Adres e-mail
