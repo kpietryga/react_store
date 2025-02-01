@@ -14,6 +14,7 @@ const Checkout: React.FC = () => {
     const [postCode, setPostCode] = useState("");
     const [additional, setAdditional] = useState("");
     const [tel, setTel] = useState("");
+    const [email, setEmail] = useState("");
 
 
     const onSendForm = (e) => {
@@ -51,16 +52,7 @@ const Checkout: React.FC = () => {
                             ]}
                         />
                         <InputField id="tel" label="Telefon" value={tel} onChange={(e) => setTel(e.target.value)} />
-                        <div className="py-4">
-                            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                                Adres e-mail
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="w-full border rounded-xl p-3 border-gray-600 focus:outline-none focus:ring-2 focus:ring-customGrayText"
-                            />
-                        </div>
+                        <InputField id="email" label="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <TextareaField id="additional" label="Dodatkowe Uwagi" value={additional} onChange={(e) => setAdditional(e.target.value)} />
 
                         <div className="py-4">
