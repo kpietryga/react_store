@@ -4,6 +4,7 @@ import CartItem from "../common/Cart/CartItem.tsx";
 import InputField from "../common/FromFields/InputField.tsx";
 import SelectField from "../common/FromFields/SelectField.tsx";
 import TextareaField from "../common/FromFields/TextareaField.tsx";
+import ShippingMethods from "../common/shipping.tsx";
 
 const Checkout: React.FC = () => {
     const [firstName, setFirstName] = useState("");
@@ -34,7 +35,8 @@ const Checkout: React.FC = () => {
         <>
             <TopTitle title="Zamówienie" subTitle="Poznaj nasze usługi" />
             <main className="max-w-screen-xl mx-auto text-justify p-12 animate-fadeIn grid grid-cols-2 gap-9">
-                <div><form onSubmit={onSendForm}>
+                <div>
+                    <form onSubmit={onSendForm}>
                     <div className="p-9 bg-slate-100 rounded-xl">
                         <InputField id="firstName" label="Imię" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         <InputField id="lastName" label="Nazwisko" value={lastName} onChange={(e) => setLastName(e.target.value)} />
@@ -75,17 +77,11 @@ const Checkout: React.FC = () => {
 
                     <h2 className="text-xl">Wysyłka</h2>
                     <div className="">
-                        <ul>
-                            <li>tania wysylka</li>
-                            <li>tania wysylka</li>
-                            <li>tania wysylka</li>
-                        </ul>
+                        <ShippingMethods />
                     </div>
 
                     <h2 className="text-xl">Płatności</h2 >
                 </div>
-
-
             </main>
         </>
 
