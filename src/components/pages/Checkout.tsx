@@ -4,7 +4,8 @@ import CartItem from "../common/Cart/CartItem.tsx";
 import InputField from "../common/FromFields/InputField.tsx";
 import SelectField from "../common/FromFields/SelectField.tsx";
 import TextareaField from "../common/FromFields/TextareaField.tsx";
-import ShippingMethods from "../common/shipping.tsx";
+import ShippingMethods from "../common/Shipping.tsx";
+import PaymentMethods from "../common/PaymentMethods.tsx";
 
 const Checkout: React.FC = () => {
     const [firstName, setFirstName] = useState("");
@@ -81,6 +82,7 @@ const Checkout: React.FC = () => {
                     </div>
 
                     <h2 className="text-xl">Płatności</h2 >
+                    <PaymentMethods />
                 </div>
             </main>
         </>
