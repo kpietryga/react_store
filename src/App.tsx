@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
@@ -9,15 +9,43 @@ import NotFound from "./components/pages/NotFound";
 import Offer from "./components/pages/Offer.tsx";
 import Cart from "./components/common/Cart/Cart.tsx";
 import Checkout from "./components/pages/Checkout.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ProductDetails from "./components/pages/ProductDetails";
+import {fetchData} from "./api/Api.tsx";
 // import TopTitle from "./components/common/TopTitle.tsx";
+
+interface Image {
+    src: string;
+    alt: string;
+}
+
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    images: Image[];
+}
 
 
 const App = () => {
     const [isCartHidden, setIsCartHidden] = useState(false);
-
     const handleClick = (bool:boolean):void=> setIsCartHidden(bool)
+    const [products, setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        const params = {params: {per_page: 100,}}
+        const fetchProducts = async (): Promise<void> => {
+            try {
+                const productsData = await fetchData("products", params);
+                setProducts(productsData);
+            } catch (error) {
+                console.error("Błąd:", error);
+            }
+        };
+        fetchProducts().catch();
+    }, []);
+
+    console.log(products);
 
     return (
         <Router>
