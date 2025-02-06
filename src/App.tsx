@@ -52,7 +52,7 @@ const App = () => {
             <Cart hidden={isCartHidden} onClick={() => setIsCartHidden(true)}/>
             <Header onClick={() =>handleClick(false)}/>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home products={products}/>} />
                     <Route path="/products" element={<Shop />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
