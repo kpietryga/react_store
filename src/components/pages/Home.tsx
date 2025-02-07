@@ -1,6 +1,6 @@
 import React from "react";
-// import PromotedProducts from "../common/Products.tsx";
 import MainSlider from "../common/MainSlider.tsx";
+import Products from "../common/Products.tsx"; // Dodano import
 
 interface Image {
     src: string;
@@ -15,38 +15,31 @@ interface Product {
 }
 
 interface HomeProps {
-    products?: Product[]
+    products?: Product[];
 }
 
-
-const Home: React.FC<HomeProps>= ({products}: HomeProps) => {
+const Home: React.FC<HomeProps> = ({ products = [] }) => { // Domyślnie pusty array, aby uniknąć błędu
     return (
         <>
             <div className="max-w-7xl mx-auto px-9">
-                <MainSlider/>
+                <MainSlider />
             </div>
 
             <main className="max-w-screen-xl mx-auto text-center px-9">
+                <h2 className="text-2xl font-bold text-customRed m-10">Nasze produkty</h2>
 
-                <div>
-                    {products?.map((product: Product) => (
-                        <div key={product.id}>
-                            {JSON.stringify(product)}
-                        </div>
-                    ))}
-                </div>
+                {/* Wyświetlenie produktów */}
+                <Products products={products} />
 
-                <h2 className="text-2xl font-bold text-customRed m-10">Najchetniej kupowane</h2>
+                <h2 className="text-2xl font-bold text-customRed m-10">Najchętniej kupowane</h2>
                 {/*<PromotedProducts/>*/}
                 <h2 className="text-2xl font-bold text-customRed m-10">Promocje</h2>
                 {/*<PromotedProducts/>*/}
                 <h2 className="text-2xl font-bold text-customRed m-10">Polecane</h2>
                 {/*<PromotedProducts/>*/}
-                <div className="my-9 flex gap-5 text-justify">
-                </div>
             </main>
         </>
-    )
-}
+    );
+};
 
 export default Home;

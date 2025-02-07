@@ -53,7 +53,7 @@ const App = () => {
             <Header onClick={() =>handleClick(false)}/>
                 <Routes>
                     <Route path="/" element={<Home products={products}/>} />
-                    <Route path="/products" element={<Shop />} />
+                    <Route path="/products" element={<Shop products={products}/>} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/offer" element={<Offer />} />
