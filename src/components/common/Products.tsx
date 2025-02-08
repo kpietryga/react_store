@@ -6,21 +6,37 @@ interface Image {
     alt: string;
 }
 
+interface Category {
+    id: number;
+    name: string;
+    slug: string;
+}
+
 interface Product {
     id: number;
     name: string;
-    price: number;
+    price: string; // WooCommerce zwraca cenę jako string
     images: Image[];
+    categories: Category[]; // Kategorie jako tablica
 }
 
 interface ProductsProps {
     products: Product[];
-    limit?: number; // Dodany limit
+    limit?: number;
+    category?: string; // Nazwa kategorii do filtrowania
 }
 
-const Products: React.FC<ProductsProps> = ({ products, limit }) => {
+const Products: React.FC<ProductsProps> = ({ products, limit, category }) => {
     const navigate = useNavigate();
-    const displayedProducts = limit ? products.slice(0, limit) : products; // Ograniczenie liczby produktów
+
+    // Filtrowanie produktów po kategorii, jeśli podano kategorię
+    const filteredProducts = category
+        ? products.filter(product =>
+            product.categories.some(cat => cat.name.toLowerCase() === category.toLowerCase())
+        )
+        : products;
+
+    const displayedProducts = limit ? filteredProducts.slice(0, limit) : filteredProducts;
 
     return (
         <>
@@ -33,7 +49,7 @@ const Products: React.FC<ProductsProps> = ({ products, limit }) => {
                                     {product.name}
                                 </p>
                             </div>
-                            <img src={product.images[0].src} alt={product.name} />
+                            <img src={product.images[0]?.src} alt={product.images[0]?.alt || product.name} />
 
                             <p className="text-center bg-rose-100 p-2">
                                 <span className="text-customRed font-bold">Cena:</span> {product.price} PLN

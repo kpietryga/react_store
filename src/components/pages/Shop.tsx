@@ -7,11 +7,18 @@ interface Image {
     alt: string;
 }
 
+interface Category {
+    id: number;
+    name: string;
+    slug: string;
+}
+
 interface Product {
     id: number;
     name: string;
-    price: number;
+    price: string; // WooCommerce zwraca cenę jako string
     images: Image[];
+    categories: Category[]; // ✅ Dodaj tę właściwość
 }
 
 interface ShopProps {
@@ -28,7 +35,7 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
                         <h2 className="text-2xl font-bold text-customRed m-10 text-center">Najchętniej kupowane</h2>
 
                         {/* Wyświetlamy tylko 6 produktów */}
-                        <Products products={products} limit={6} />
+                        <Products products={products} category="Hoodies" limit={10} />
 
                         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
                         <div>Cumque deleniti dignissimos doloremque et harum laboriosam...</div>
