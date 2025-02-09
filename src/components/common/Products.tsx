@@ -12,31 +12,46 @@ interface Category {
     slug: string;
 }
 
+interface Tag {
+    id: number;
+    name: string;
+    slug: string;
+}
+
 interface Product {
     id: number;
     name: string;
     price: string; // WooCommerce zwraca cenę jako string
     images: Image[];
-    categories: Category[]; // Kategorie jako tablica
+    categories: Category[];
+    tags: Tag[]; // ✅ Dodane tagi
 }
 
 interface ProductsProps {
     products: Product[];
     limit?: number;
-    category?: string; // Nazwa kategorii do filtrowania
+    category?: string; // Filtrowanie po kategorii
+    tag?: string; // ✅ Filtrowanie po tagu
 }
 
-const Products: React.FC<ProductsProps> = ({ products, limit, category }) => {
+const Products: React.FC<ProductsProps> = ({ products, limit, category, tag }) => {
     const navigate = useNavigate();
 
-    // Filtrowanie produktów po kategorii, jeśli podano kategorię
-    const filteredProducts = category
+    // Filtrowanie po kategorii
+    const filteredByCategory = category
         ? products.filter(product =>
             product.categories.some(cat => cat.name.toLowerCase() === category.toLowerCase())
         )
         : products;
 
-    const displayedProducts = limit ? filteredProducts.slice(0, limit) : filteredProducts;
+    // Filtrowanie po tagu
+    const filteredByTag = tag
+        ? filteredByCategory.filter(product =>
+            product.tags.some(t => t.name.toLowerCase() === tag.toLowerCase())
+        )
+        : filteredByCategory;
+
+    const displayedProducts = limit ? filteredByTag.slice(0, limit) : filteredByTag;
 
     return (
         <>
