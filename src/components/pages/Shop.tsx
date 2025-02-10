@@ -1,6 +1,6 @@
 import Products from "../common/Products.tsx";
 import TopTitle from "../common/TopTitle.tsx";
-import React from "react";
+import React, { useState } from "react";
 
 interface Image {
     src: string;
@@ -19,43 +19,66 @@ interface Tag {
     slug: string;
 }
 
-
 interface Product {
     id: number;
     name: string;
-    price: string; // WooCommerce zwraca cenę jako string
+    price: string;
     images: Image[];
     categories: Category[];
-    tags: Tag[]; // ✅ Dodane tagi
+    tags: Tag[];
 }
 
 interface ShopProps {
-    products: Product[]; // Upewniamy się, że `products` jest przekazywane poprawnie
+    products: Product[];
 }
 
 const Shop: React.FC<ShopProps> = ({ products }) => {
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    const [selectedTag, setSelectedTag] = useState<string | null>(null);
+    const [sortOrder, setSortOrder] = useState<string>("asc");
+
+    const categories = Array.from(new Set(products.flatMap(p => p.categories.map(c => c.name))));
+    const tags = Array.from(new Set(products.flatMap(p => p.tags.map(t => t.name))));
+
+    const filteredProducts = products
+        .filter(product => (selectedCategory ? product.categories.some(c => c.name === selectedCategory) : true))
+        .filter(product => (selectedTag ? product.tags.some(t => t.name === selectedTag) : true))
+        .sort((a, b) => sortOrder === "asc" ? parseFloat(a.price) - parseFloat(b.price) : parseFloat(b.price) - parseFloat(a.price));
+
     return (
         <>
-            <TopTitle title="Produkty" subTitle="sprawdź nasze niesamowite produkty" />
+            <TopTitle title="Produkty" subTitle="Sprawdź nasze niesamowite produkty" />
             <main className="max-w-screen-xl mx-auto text-justify px-12 animate-fadeIn flex">
-                <div>
-                    <div className="flex flex-col ">
-                        <h2 className="text-2xl font-bold text-customRed m-10 text-center">Najchętniej kupowane</h2>
-
-                        {/* Wyświetlamy tylko 6 produktów */}
-                        <Products products={products} category="Hoodies" limit={3} />
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
-                        <Products products={products} tag={"róże"}/>
-
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
-                        <div>Cumque deleniti dignissimos doloremque et harum laboriosam...</div>
-                        <div>Aperiam, blanditiis cupiditate debitis delectus dignissimos...</div>
-                        <div>Aliquam consectetur culpa cumque cupiditate deserunt...</div>
-                        <div>Dicta eaque earum harum labore maiores officiis quo...</div>
+                <div className="w-1/4 p-4 border-r">
+                    <h2 className="text-xl font-bold">Filtry</h2>
+                    <div className="mt-4">
+                        <label className="block font-semibold">Kategoria:</label>
+                        <select className="w-full p-2 border" onChange={e => setSelectedCategory(e.target.value || null)}>
+                            <option value="">Wszystkie</option>
+                            {categories.map(category => (
+                                <option key={category} value={category}>{category}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="mt-4">
+                        <label className="block font-semibold">Tag:</label>
+                        <select className="w-full p-2 border" onChange={e => setSelectedTag(e.target.value || null)}>
+                            <option value="">Wszystkie</option>
+                            {tags.map(tag => (
+                                <option key={tag} value={tag}>{tag}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="mt-4">
+                        <label className="block font-semibold">Sortowanie:</label>
+                        <select className="w-full p-2 border" onChange={e => setSortOrder(e.target.value)}>
+                            <option value="asc">Cena rosnąco</option>
+                            <option value="desc">Cena malejąco</option>
+                        </select>
                     </div>
                 </div>
-                <div className="">
-                    <h2>Filters</h2>
+                <div className="w-3/4 p-4">
+                    <Products products={filteredProducts} limit={filteredProducts.length} />
                 </div>
             </main>
         </>
