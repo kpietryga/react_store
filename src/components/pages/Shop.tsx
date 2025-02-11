@@ -36,6 +36,8 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [sortOrder, setSortOrder] = useState<string>("asc");
+    const [minPrice, setMinPrice] = useState<string>("");
+    const [maxPrice, setMaxPrice] = useState<string>("");
 
     const categories = Array.from(new Set(products.flatMap(p => p.categories.map(c => c.name))));
     const tags = Array.from(new Set(products.flatMap(p => p.tags.map(t => t.name))));
@@ -43,6 +45,8 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
     const filteredProducts = products
         .filter(product => (selectedCategory ? product.categories.some(c => c.name === selectedCategory) : true))
         .filter(product => (selectedTag ? product.tags.some(t => t.name === selectedTag) : true))
+        .filter(product => (minPrice ? parseFloat(product.price) >= parseFloat(minPrice) : true))
+        .filter(product => (maxPrice ? parseFloat(product.price) <= parseFloat(maxPrice) : true))
         .sort((a, b) => sortOrder === "asc" ? parseFloat(a.price) - parseFloat(b.price) : parseFloat(b.price) - parseFloat(a.price));
 
     return (
@@ -76,6 +80,27 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
                             <option value="desc">Cena malejąco</option>
                         </select>
                     </div>
+                    <div className="mt-4">
+                        <label className="block font-semibold">Cena (min - max):</label>
+                        <div className="flex space-x-2">
+                            <input
+                                type="number"
+                                className="w-1/2 p-2 border"
+                                placeholder="Min"
+                                value={minPrice}
+                                onChange={e => setMinPrice(e.target.value)}
+                            />
+                            <input
+                                type="number"
+                                className="w-1/2 p-2 border"
+                                placeholder="Max"
+                                value={maxPrice}
+                                onChange={e => setMaxPrice(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+
                 </div>
                 <div className="w-3/4 p-4">
                     <Products products={filteredProducts} limit={filteredProducts.length} />
