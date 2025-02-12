@@ -85,8 +85,10 @@ const Products: React.FC<ProductsProps> = ({ products, limit, category, tag }) =
                     ))}
                 </ul>
             ) : (
+
                 <p className="text-center">
                     <ArrowPathIcon className="m-auto w-10 h-10 animate-spin text-customGrayText" />
+                    Brak szukanych produktów
                 </p>
             )}
         </>
