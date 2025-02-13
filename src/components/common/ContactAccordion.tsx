@@ -1,6 +1,7 @@
 import {Accordion, AccordionItem as Item, AccordionItemProps} from "@szhsin/react-accordion";
 import {ChevronDownIcon} from "@heroicons/react/16/solid";
 import React from "react";
+import {ADDRESS} from "./ContactData.tsx";
 
 interface AccordionItemType extends AccordionItemProps {
     header: React.ReactNode;
@@ -41,27 +42,18 @@ export default function App() {
             {/* `transitionTimeout` prop should be equal to the transition duration in CSS */}
             <Accordion transition transitionTimeout={200}>
                 <AccordionItem header="Gliwice" initialEntered>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <p className="mt-2">{ADDRESS.street} {ADDRESS.streetNumber}</p>
+                    <p>{ADDRESS.postNumber} {ADDRESS.city}</p>
                 </AccordionItem>
 
                 <AccordionItem header="Bytom">
-                    Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
-                    erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
-                    erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
-                    erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel
-                    erat quis sodales. Nam ex enim, eleifend venenatis lectus vitae.
+                    <p className="mt-2">{ADDRESS.street} {ADDRESS.streetNumber}</p>
+                    <p>{ADDRESS.postNumber} {ADDRESS.city}</p>
                 </AccordionItem>
 
                 <AccordionItem header="Katowice">
-                    Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
-                    Fusce vulputate purus sed tempus feugiat.Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
-                    Fusce vulputate purus sed tempus feugiat.Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
-                    Fusce vulputate purus sed tempus feugiat.Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
-                    Fusce vulputate purus sed tempus feugiat.
+                    <p className="mt-2">{ADDRESS.street} {ADDRESS.streetNumber}</p>
+                    <p>{ADDRESS.postNumber} {ADDRESS.city}</p>
                 </AccordionItem>
             </Accordion>
         </div>
