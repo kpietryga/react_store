@@ -53,7 +53,7 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
         <>
             <TopTitle title="Produkty" subTitle="Sprawdź nasze niesamowite produkty" />
             <main className="max-w-screen-xl mx-auto text-justify px-12 animate-fadeIn flex">
-                <div className="w-1/4 p-4 border-r">
+                <div className="w-1/4 pr-9 pt-9 ">
                     <h2 className="text-xl font-bold">Filtry</h2>
                     <div className="mt-4">
                         <label className="block font-semibold">Kategoria:</label>
@@ -102,7 +102,7 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
 
 
                 </div>
-                <div className="w-3/4 p-4">
+                <div className="w-3/4 p-8 ">
                     <Products products={filteredProducts} limit={filteredProducts.length} />
                 </div>
             </main>

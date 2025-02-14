@@ -58,7 +58,7 @@ const Products: React.FC<ProductsProps> = ({ products, limit, category, tag }) =
             {displayedProducts.length > 0 ? (
                 <ul className="flex flex-wrap gap-3 justify-center animate-fadeIn">
                     {displayedProducts.map((product) => (
-                        <li className="max-w-xs" key={product.id}>
+                        <li className="max-w-64" key={product.id}>
                             <div className="flex flex-col">
                                 <p className="rounded-t-md text-center bg-rose-50 font-bold text-customRed p-2">
                                     {product.name}
