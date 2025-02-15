@@ -5,9 +5,11 @@ const TopBar: React.FC = () => {
         return (
 
             <div className="bg-customRed">
-                <p className={'max-w-screen-xl m-auto text-white text-small py-6 px-9'}>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi culpa cumque deleniti earum error et,
-                    exercitationem explicabo ipsam iure non, nulla, officiis omnis porro rerum suscipit temporibus vel
-                    voluptatum.</p>
+                <p className={'max-w-screen-xl m-auto text-white text-small py-6 px-9'}>
+
+                    Do 12 lutego przyjmujemy zamówienia z dostawą do innych miast. Od 12 do 17 lutego realizujemy wyłącznie zamówienia lokalne. Dziękujemy za zrozumienie i zapraszamy do składania zamówień!
+
+                </p>
             </div>
         )
     }

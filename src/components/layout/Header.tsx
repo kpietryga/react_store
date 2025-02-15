@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-// import TopBar from "../common/TopBar.tsx";
+import TopBar from "../common/TopBar.tsx";
 import rozaLogo from '../../assets/roza-logo.png';
 import {
     ShoppingCartIcon,
@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ onClick }) => {
 
     return (
         <header className="bg-white text-customGrayText">
-            {/*<TopBar />*/}
+            <TopBar />
 
             <div className="max-w-screen-xl m-auto flex justify-between items-center px-9 py-4" id="top-header">
                 <div id="logo" className="logo">
